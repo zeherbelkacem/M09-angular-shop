@@ -1,0 +1,59 @@
+
+  <!-- depuis une liste pré-remplie -->
+  <!-- <div>
+    <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>DESCRIPTION</th>
+          <th>PRICE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let training of listTrainings">
+          <td>{{ training.id }}</td>
+          <td>{{ training.name }}</td>
+          <td/>{{ training.description }}</td>
+          <td>{{ training.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <!-- avec ng click -->
+  <div >
+  <!-- <button (click)="displayTrainings()">Display trainings</button> -->
+  <!-- if else-->
+  <!-- 1/ if -->
+  <ng-container *ngIf="listTrainings; else noList">
+    <table class="table  table-dark table-striped table-hover">
+      <thead >
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>DESCRIPTION</th>
+          <th>PRICE</th>
+          <th>QUANTITY</th>
+          <th>ADD TO CART</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let training of listTrainings">
+          <td>{{ training.id }}</td>
+          <td>{{ training.name }}</td>
+          <td>{{ training.description }}</td>
+          <td>{{ training.price }}</td>
+          <!-- <td> <input type="number" value="{{training.quantity}}" min="1" max="10" (change)="onChangeEvent(training, $event)" /> </td> -->
+          <td> <input type="number" value="{{training.quantity}}" min="1" max="10" [(ngModel)] = "training.quantity" /> </td>
+          <!-- <td><a (click)="addToCart(training)" class="btn btn-success btn-block">ADD</a></td> -->
+          <td><a (click)="addToLocalStorage(training)" class="btn btn-success btn-block">ADD</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <!-- else -->
+  <ng-template #noList>
+    <p>The training list is empty</p>
+  </ng-template>
+</div>
+

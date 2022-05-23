@@ -1,0 +1,39 @@
+
+<div class="container d-flex justify-content-center">
+<div class="col-12 col-md-6">
+<form #f="ngForm" (ngSubmit)="onAddCustomer(f.value)">
+  <div class="mb-3 mt-3">
+    <label for="fname" class="form-label">FirstName:</label>
+    <input type="text" class="form-control" placeholder="Enter fisrt name" ngModel name="firstName" required>
+    <div class="valid-feedback">Valid.</div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="lname" class="form-label">LastName:</label>
+    <input type="text" class="form-control" placeholder="Enter last name" ngModel name="lastName" required>
+    <div class="valid-feedback">Valid.</div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="email" class="form-label">Email:</label>
+    <input type="text" class="form-control" placeholder="Enter email" ngModel name="email" required>
+    <div class="valid-feedback">Valid.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="pwd" class="form-label">Password:</label>
+    <input type="password" class="form-control" id="pwd" placeholder="Enter password" ngModel name="password" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="phone" class="form-label">Phone:</label>
+    <input type="text" class="form-control" placeholder="Enter phone" ngModel name="phone" required>
+    <div class="valid-feedback">Valid.</div>
+  </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>

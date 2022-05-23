@@ -1,0 +1,63 @@
+<div class="container">
+  <!-- <button (click)="displayTrainings()">Display trainings</button> -->
+  <!-- if else-->
+  <!-- 1/ if -->
+  <!-- <div *ngIf="cart; else emptyCart"> -->
+
+  <div *ngIf="lclStorage; else emptyCart">
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>QUANTITY</th>
+          <th>PRICE</th>
+          <th>DELETE FROM CART</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of lclStorage">
+          <td>{{ c.id }}</td>
+          <td>{{ c.name }}</td>
+          <td>{{ c.quantity }}</td>
+          <td>{{ c.price }}</td>
+          <!-- <td>
+            <a (click)="withdrawTraining(c)" class="btn btn-danger btn-block"
+              >DELETE</a
+            >
+          </td> -->
+          <!-- Using localStorage -->
+          <td>
+            <a
+              (click)="withdrawTrainingFromLocalStorage(c)"
+              class="btn btn-danger btn-block"
+              >DELETE</a
+            >
+          </td>
+        </tr>
+      </tbody>
+      <tr class="bg-success">
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td>{{ totalSum }}</td>
+        <td></td>
+      </tr>
+      <tr class="table-active">
+        <td>
+          <button (click)="validateCart()" class="btn btn-secondary btn-sm">
+            Order
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- else -->
+  <ng-template #emptyCart>
+    <p>The cart list is empty</p>
+  </ng-template>
+  
+  <div *ngIf="connected">
+    <button (click)="clearCart()" class="btn btn-secondary btn-sm">Validate your cart?</button>
+  </div>
+</div>
