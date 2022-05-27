@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { Customer } from './model/customer';
+import { Router } from '@angular/router';
+import { User } from './models/user';
+import { AuthenticationService } from './services/authentication.service';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -7,32 +10,53 @@ import { Customer } from './model/customer';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  customers: Customer[] | undefined;
-  ngOnInit() : void{
+  users: User[] | undefined;
+  cartArticlesNumber : number | undefined;
   
-   
+
+  constructor(public cartService :CartService, public authService : AuthenticationService, private router : Router){
+    //this.cartArticlesNumber = this.cartService.getLocalStorage().length;
+  }
+  ngOnInit() : void{
   }
 
-  onSaveCustomers(){
+  userAuthentication(){
+    this.router.navigateByUrl('login')
+  }
+
+
+  onSaveUsersInLocalStorage(){
+
        /* Save customers existing list in localStorage */   
-       this.customers = [
+       this.users = [
         {
-          firstName: "zeher",
-          lastName :"belkacem",
-          email: "zerher@fms.com",
+          name: "belkacem",
+          email: "belkacem@fms.com",
           password : "1234",
-          phone : "050608104"
+          roles : ["ADMIN", "USER"]
         },
         {
-          firstName: "aksel",
-          lastName :"ilyas",
+          name: "sarah",
+          email: "sarah@fms.com",
+          password : "1234",
+          roles : ["ADMIN", "USER"]
+        },
+        {
+          name: "aksel",
           email: "aksel@fms.com",
-          password : "12345",
-          phone : "050608004"
-        }
+          password : "1234",
+          roles : ["USER"]
+        }, 
+        {
+        name: "ilyas",
+        email: "ilays@fms.com",
+        password : "1234",
+        roles : ["USER"]
+      }
       ] 
-    for(let i =0; i < this.customers.length; i++){
-      localStorage.setItem(this.customers[i].firstName, JSON.stringify(this.customers[i]) )
+     
+    for(let i =0; i < this.users.length; i++){
+      localStorage.setItem(this.users[i].name, JSON.stringify(this.users[i]) )
     }
   }
 }

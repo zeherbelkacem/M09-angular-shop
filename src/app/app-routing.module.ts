@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './cart/cart.component';
-import { ConnectionComponent } from './connection/connection.component';
-import { CustomerComponent } from './customer/customer.component';
-import { FinalOrderComponent } from './final-order/final-order.component';
-import { TrainingsComponent } from './trainings/trainings.component';
+import { AppComponent } from './app.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { FinalOrderComponent } from './components/final-order/final-order.component';
+import { TrainingsComponent } from './components/trainings/trainings.component';
+import { CreateComponent } from './CRUDcomponents/create/create.component';
+import { UpdateComponent } from './CRUDcomponents/update/update.component';
 
 const routes: Routes = [
   {
     path : 'trainings',
     component : TrainingsComponent
+  },
+  {
+    path : 'home',
+    component : AppComponent
   },
   {
     path : 'cart',
@@ -21,11 +28,23 @@ const routes: Routes = [
   },
   {
     path : 'login',
-    component : ConnectionComponent
+    component : AuthenticationComponent
   },
   {
     path : 'order',
     component : FinalOrderComponent
+  },
+  {
+    path : 'authentify',
+    component : AuthenticationComponent
+  },
+  {
+    path :'createTrainingForm',
+    component : CreateComponent
+  },
+  {
+    path :'updateTrainingForm/:id',
+    component : UpdateComponent
   }
 ];
 

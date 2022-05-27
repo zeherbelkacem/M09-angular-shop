@@ -1,0 +1,81 @@
+{
+  "trainings": [
+    {
+      "name": "Angular",
+      "description": "Angular/Typescript 15 jours",
+      "price": 1750,
+      "quantity": 1,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Python",
+      "description": "Formation python/djongo 10 jours",
+      "price": 15,
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "name": "C++",
+      "description": "Formation C++: programmation orientée objet ",
+      "price": 1200,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "name": "NodeJs",
+      "description": "Prise en main de nodeJs/ Express 2 jours ",
+      "price": 800,
+      "quantity": 1
+    },
+    {
+      "name": "PHP",
+      "description": "Initiation au Dv/Web en php + simphony",
+      "price": 1000,
+      "quantity": 1,
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "DotNet",
+      "description": "Formation DotNet 3 jours",
+      "price": 750,
+      "quantity": 1
+    },
+    {
+      "name": "IoT",
+      "description": "Initiation à l'IoT de 5 jours",
+      "price": 500,
+      "quantity": 1,
+      "id": 9
+    },
+    {
+      "name": "Git/Github",
+      "description": "2 jours pour maitriser GIT",
+      "price": 750,
+      "quantity": 1,
+      "id": 10
+    },
+    {
+      "name": "Java",
+      "description": "Programmation orientée objet + advanced Java sur 15 jours",
+      "price": 2500,
+      "quantity": 1,
+      "id": 11
+    },
+    {
+      "name": "test",
+      "description": "tesxt",
+      "price": 1120,
+      "quantity": 11,
+      "id": 12
+    },
+    {
+      "name": "h",
+      "description": "k",
+      "price": 1,
+      "quantity": 1,
+      "id": 13
+    }
+  ]
+}

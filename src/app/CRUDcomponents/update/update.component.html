@@ -1,0 +1,68 @@
+<div class="container d-flex justify-content-center">
+  <div
+    *ngIf="updated"
+    class="col-12 col-md-6 alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>Success!</strong> Training updated
+    <a href="/trainings">Return to list</a>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-center">
+  <div class="col-12 col-md-6">
+    <form
+      [formGroup]="updateTrainingForm"
+      (ngSubmit)="updateTraining(updateTrainingForm)"
+    >
+      <div class="mb-3 mt-3">
+        <label for="name" class="form-label">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          required
+        />
+        <div class="valid-feedback">Valid.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="description" class="form-label">Description:</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="description"
+          formControlName="description"
+          required
+        />
+        <div class="valid-feedback">Valid.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="price" class="form-label">Price:</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="price"
+          required
+        />
+        <div class="valid-feedback">Valid.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="quantity" class="form-label">Quantity:</label>
+        <input type="number" class="form-control" formControlName="quantity" />
+        <div class="valid-feedback">Valid.</div>
+      </div>
+
+      <!-- <button type="submit"  class="btn btn-primary">Submit</button> -->
+      <button
+        type="submit"
+        [disabled]="!updateTrainingForm.valid"
+        class="btn btn-primary"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
