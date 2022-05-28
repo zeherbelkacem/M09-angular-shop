@@ -5,6 +5,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { CartComponent } from './components/cart/cart.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { FinalOrderComponent } from './components/final-order/final-order.component';
+import { PageAccueilComponent } from './components/page-accueil/page-accueil.component';
 import { TrainingsComponent } from './components/trainings/trainings.component';
 import { CreateComponent } from './CRUDcomponents/create/create.component';
 import { UpdateComponent } from './CRUDcomponents/update/update.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path : 'home',
-    component : AppComponent
+    component : PageAccueilComponent
   },
   {
     path : 'cart',
@@ -45,7 +46,8 @@ const routes: Routes = [
   {
     path :'updateTrainingForm/:id',
     component : UpdateComponent
-  }
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

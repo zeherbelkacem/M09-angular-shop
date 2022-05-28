@@ -3,11 +3,11 @@
         <form #f="ngForm" (ngSubmit)="checkIfUserExists()">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" name="email" [(ngModel)]="email" aria-describedby="emailHelp">
+              <input type="email" class="form-control" placeholder="Email address" name="email" [(ngModel)]="email" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" name="password" [(ngModel)]="password">
+              <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password">
             </div>
            
             <div class=" row gx-1">
@@ -15,8 +15,11 @@
                     <button type="submit" class="btn btn-primary">Login</button>
                 </div>
                 <div class="col">
-                    <a routerLink="/createCustomer">Create a new account</a>
+                    <a routerLink="/createCustomer">Create an account</a>
                 </div>
+                <div class="col">
+                  <a routerLink="/createCustomer">Forgot password?</a>
+              </div>
                 
             </div>
           </form>

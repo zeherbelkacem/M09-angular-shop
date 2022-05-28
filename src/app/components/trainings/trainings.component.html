@@ -8,7 +8,7 @@
       <!-- 1/ if -->
       <ng-container *ngIf="listTrainings; else noList">
         <table class="table table-dark table-striped table-hover">
-          <thead >
+          <thead >.
             <tr *ngIf="this.authService.getAdminConnected()">
               <th>ID</th>
               <th>NAME</th>
@@ -76,7 +76,7 @@
     </div>
   </div>
   
-  <div class="col-4 container-fluid"><app-cart></app-cart></div>
+  <div *ngIf="!this.authService.getAdminConnected()" class="col-4 container-fluid"><app-cart></app-cart></div>
 </div>
 
 
