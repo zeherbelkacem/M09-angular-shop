@@ -18,9 +18,9 @@ export class CartService {
   getTotalSum() {
     let ttcSum = 0;
 
-    if (this.lclStorage.length != 0) {
-      for (let i = 0; i < this.lclStorage.length; i++) {
-        ttcSum += this.lclStorage[i].price * this.lclStorage[i].quantity;
+    if (this.getLocalStorage().length != 0) {
+      for (let i = 0; i < this.getLocalStorage().length; i++) {
+        ttcSum += this.getLocalStorage()[i].price * this.getLocalStorage()[i].quantity;
       }
     }
     this.totalSum = ttcSum;
@@ -35,26 +35,16 @@ export class CartService {
    */
   public saveTraining(training: Training) {
     if (training.quantity > 0) {
-     
       let notFound: boolean = false;
-
       if (localStorage.length == 0) {
         localStorage.setItem(String(training.id), JSON.stringify(training));
-        //this.lclStorage.push(JSON.parse(String(localStorage.getItem(String(training.id)))));
-          // JSON.parse(String(localStorage.getItem(String(localStorage.key(i)))))
+        this.lclStorage.push(JSON.parse(String(localStorage.getItem(String(training.id)))));
       } else {
         for (let i = 0; i < localStorage.length; i++) {
           if (Number(localStorage.key(i))) {
             if (localStorage.key(i) == String(training.id)) {
-              //create a new Training object
-              // let t: Training = JSON.parse(
-              //   String(localStorage.getItem(String(training.id)))
-              // );
-              //affect localstaorage id (key) element quantity to the newly object quantity
-              // t.quantity += training.quantity;
-              // again update the existing localstorage training object with with the newly created object (same id (key))
               localStorage.setItem(String(training.id), JSON.stringify(training));
-             // this.lclStorage[i] = JSON.parse(String(localStorage.getItem(String(localStorage.key(i)))));
+              this.lclStorage[i] = JSON.parse(String(localStorage.getItem(String(localStorage.key(i)))));
 
               notFound = true;
               break;
@@ -63,7 +53,7 @@ export class CartService {
         }
         if (notFound == false) {
           localStorage.setItem(String(training.id), JSON.stringify(training));
-         // this.lclStorage.push(training);
+          this.lclStorage.push(JSON.parse(String(localStorage.getItem(String(training.id)))));
         }
       }
 
@@ -78,17 +68,14 @@ export class CartService {
    * @returns
    */
   getLocalStorage() {
-    // let lStorage: Training[] = [];
-    this.lclStorage = [];
+    let lStorage: Training[] = [];
     for (let i = 0; i < localStorage.length; i++) {
       if (Number(localStorage.key(i))) {
-        this.lclStorage.push(
-          JSON.parse(String(localStorage.getItem(String(localStorage.key(i)))))
-        );
+        lStorage.push(JSON.parse(String(localStorage.getItem(String(localStorage.key(i)))))) ;
+        
       }
     }
-    // this.lclStorage = lStorage;
-    return this.lclStorage;
+    return lStorage;
   }
 
   /**

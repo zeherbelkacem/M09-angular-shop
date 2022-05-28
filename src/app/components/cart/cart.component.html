@@ -4,7 +4,7 @@
   <!-- 1/ if -->
   <!-- <div *ngIf="cart; else emptyCart"> -->
 
-  <div *ngIf="lclStorage; else emptyCart">
+  <div *ngIf="this.cartService.getLocalStorage(); else emptyCart">
     <table class="table table-dark table-striped table-hover">
       <thead>
         <tr>
@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let c of lclStorage">
+        <tr *ngFor="let c of this.cartService.getLocalStorage()">
           <td>{{ c.name }}</td>
           <td>{{ c.quantity }}</td>
           <td>{{ c.price | currency : 'EUR'  }}</td>

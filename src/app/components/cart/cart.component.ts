@@ -10,7 +10,6 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  cart: Training[] | undefined;
   connected: boolean | undefined;
   lclStorage: Training[] | undefined;
 
@@ -21,7 +20,9 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.lclStorage = this.cartService.getLocalStorage();
+    console.log(this.cartService.getLocalStorage());
+    
+   // this.lclStorage = this.cartService.getLocalStorage();
     this.connected = this.cartService.getConnectedValue();
   }
 
